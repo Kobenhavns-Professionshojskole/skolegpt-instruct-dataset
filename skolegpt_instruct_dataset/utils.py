@@ -220,8 +220,9 @@ def estimate_translated_dataset_size_given_budget(
 
 def merge_new_examples_to_master_dataset(df_translated: pl.DataFrame):
     ds = datasets.load_dataset("kobprof/skolegpt-instruct")
-    df_master = ds.to_pandas()
+    df_master = ds["train"].to_pandas()
     df_translated = df_translated.to_pandas()
     df_master = pd.concat([df_master, df_translated])
-    ds = datasets.Dataset.from_pandas(df_master)
+    ds = datasets.Dataset.from_pandas(df_master, preserve_index=False)
+    ds = ds.shuffle()
     return ds
