@@ -2,7 +2,7 @@
 <img src="logo.png" width="250">
 </h1>
 
-## SkoleGPT Instruct Dataset
+# SkoleGPT Instruct Dataset
 "skolegpt-instruct" is an open source dataset for Danish instruction fine-tuning of LLM's. The dataset is translation of a quality filtered subset of the [OpenOrca instruction dataset](https://huggingface.co/datasets/Open-Orca/OpenOrca). The project is a part of the [SkoleGPT project](https://skolegpt.dk/). Find the dataset on the Hugging Face [here](https://huggingface.co/datasets/kobprof/skolegpt-instruct).
 
 ## Usage
@@ -55,4 +55,6 @@ Below is an outline of these steps:
 
 ### Translation
 The dataset translation is carried out via the DeepL service. This process necessitates having a DeepL account with a linked credit card. DeepL provides a free tier, allowing access to their API for translating up to 500,000 characters, which can be found [here](https://support.deepl.com/hc/en-us/articles/360021200939-DeepL-API-Free). There are approximately 16 unique system prompts consistently used throughout all instructions. By translating only these unique system prompts instead of translating them for each row, we can significantly conserve character usage.
-# skolegpt-instruct-dataset
+
+### Survey Instructions
+The dataset also contains instructions collected from a survey carried output the SkoleGPT. Each instruction is paried with a GPT-4 response. The instructions are marked with the source "skolegpt_survey". The code for generating the repsonses can be found in the "survey2instructions.ipynb" notebook and the survey questions can be found in ./data/survey_questions.txt.
